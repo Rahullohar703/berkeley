@@ -1,0 +1,34 @@
+import java.util.*;
+
+public class Berkeley {
+    private static class Machine {
+        public int time;
+        public Machine(int time) {
+            this.time = time;
+        }
+    }
+
+    public static void main(String[] args) {
+        List<Machine> machines = new ArrayList<>();
+        machines.add(new Machine(10));
+        machines.add(new Machine(12));
+        machines.add(new Machine(15));
+        machines.add(new Machine(14));
+        machines.add(new Machine(19));
+
+        int sum = 0;
+        for (Machine machine : machines) {
+            sum += machine.time;
+        }
+
+        int average = sum / machines.size();
+
+        for (Machine machine : machines) {
+            machine.time = average;
+        }
+
+        for (Machine machine : machines) {
+            System.out.println("Machine time: " + machine.time);
+        }
+    }
+}
